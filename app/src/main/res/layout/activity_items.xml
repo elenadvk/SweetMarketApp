@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ItemsActivity">
+
+    <Switch
+        android:id="@+id/theme_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/til"
+        android:layout_marginStart="@dimen/paddingVertical"
+        app:layout_constraintTop_toTopOf="@id/delete"
+        app:layout_constraintBottom_toBottomOf="@+id/delete"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/theme_switch"
+        app:layout_constraintEnd_toStartOf="@id/delete"
+        app:layout_constraintTop_toTopOf="@id/delete"
+        app:layout_constraintBottom_toBottomOf="@+id/delete"
+        android:hint="@string/hint"
+        android:layout_marginEnd="@dimen/paddingHorizontal"
+        app:endIconMode="clear_text">
+        <AutoCompleteTextView
+            android:id="@+id/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.Material3.Button.IconButton"
+        app:icon="@drawable/test_pic"
+        app:layout_constraintEnd_toStartOf="@+id/back"
+        app:layout_constraintStart_toEndOf="@+id/til"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:indeterminate="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.Material3.Button.IconButton"
+        app:icon="@drawable/test_pic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/delete"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/placeholder_no_results"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til"
+        />
+    <Button
+        android:id="@+id/refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:text="@string/refresh"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/placeholder"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemslist"
+        android:layout_marginHorizontal="@dimen/paddingHorizontal"
+        android:layout_marginVertical="@dimen/paddingVertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

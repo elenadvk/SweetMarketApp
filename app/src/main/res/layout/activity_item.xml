@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/beije"
+    tools:context=".ItemActivity">
+
+    <TextView
+        android:id="@+id/item_list_title1"
+        android:paddingHorizontal="@dimen/paddingHorizontal"
+        android:paddingVertical="@dimen/paddingVertical"
+        android:textSize="@dimen/text_size20"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/brown"/>
+
+    <ImageView
+        android:id="@+id/item_list_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_height"
+        android:scaleType="centerCrop" />
+
+
+    <TextView
+        android:id="@+id/item_list_text"
+        android:paddingHorizontal="@dimen/paddingHorizontal"
+        android:paddingVertical="@dimen/paddingVertical"
+        android:textSize="@dimen/text_size15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/brown"/>
+
+
+    <Button
+        android:id="@+id/button_buy"
+        android:layout_width="@dimen/layout_width"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:textColor="@color/brown"
+        android:backgroundTint="@color/white"
+        android:text="Добавить в корзину" />
+
+</LinearLayout>

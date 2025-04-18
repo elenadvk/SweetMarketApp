@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SweetMarket</string>
+
+    <string name="enter_pass">Введите пароль</string>
+    <string name="enter_email">Введите email</string>
+    <string name="enter_login">Введите логин</string>
+    <string name="placeholder_no_results">Поиск не дал результатов</string>
+    <string name="refresh">Обновить</string>
+    <string name="hint">Search...</string>
+
+</resources>

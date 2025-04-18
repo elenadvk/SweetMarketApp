@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/beije"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop100"
+        android:fontFamily="@font/inter_bold"
+        android:text="ДОБРО ПОЖАЛОВАТЬ!"
+        android:textColor="@color/brown"
+        android:textSize="@dimen/text_size25"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop50"
+        android:textSize="@dimen/text_size25"
+        android:textStyle="bold"
+        android:text="Создайте аккаунт" />
+
+
+    <TextView
+        android:layout_width="@dimen/layout_width400"
+        android:layout_height="@dimen/layout_height50"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop30"
+        android:hint="@string/enter_login"
+        android:textSize="@dimen/text_size17"
+        android:paddingHorizontal="@dimen/paddingHorizontal"
+        android:paddingVertical="@dimen/paddingVertical"
+        android:textColorHint="@color/white"
+        />
+
+    <EditText
+        android:id="@+id/user_login"
+        android:layout_width="@dimen/layout_width350"
+        android:layout_gravity="center"
+        android:layout_height="@dimen/layout_height50"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="@color/gold"
+        android:paddingHorizontal="@dimen/paddingHorizontal"
+        android:paddingVertical="@dimen/paddingVertical"
+        android:textColorHint="@color/white"
+        android:background="@color/white" />
+
+
+    <TextView
+        android:layout_width="@dimen/layout_width400"
+        android:layout_height="@dimen/layout_height50"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop5"
+        android:hint="@string/enter_email"
+        android:textSize="@dimen/text_size17"
+        android:paddingHorizontal="@dimen/paddingHorizontal"
+        android:paddingVertical="@dimen/paddingVertical"
+        android:textColorHint="@color/white"
+        />
+
+    <EditText
+        android:id="@+id/user_email"
+        android:layout_width="@dimen/layout_width350"
+        android:layout_gravity="center"
+        android:layout_height="@dimen/layout_height50"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textColor="@color/gold"
+        android:paddingHorizontal="@dimen/paddingHorizontal"
+        android:paddingVertical="@dimen/paddingVertical"
+        android:textColorHint="@color/white"
+        android:background="@color/white"
+        />
+
+
+
+    <TextView
+        android:layout_width="@dimen/layout_width400"
+        android:layout_height="@dimen/layout_height50"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop5"
+        android:hint="@string/enter_pass"
+        android:textSize="@dimen/text_size17"
+        android:paddingHorizontal="@dimen/paddingHorizontal"
+        android:paddingVertical="@dimen/paddingVertical"
+        android:textColorHint="@color/white"
+        />
+
+    <EditText
+        android:id="@+id/user_pass"
+        android:layout_width="350dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:layout_marginTop="0dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textColor="@color/gold"
+        android:paddingHorizontal="@dimen/paddingHorizontal"
+        android:paddingVertical="@dimen/paddingVertical"
+        android:textColorHint="@color/white"
+        android:background="@color/white"
+        />
+
+
+    <Button
+        android:id="@+id/button_reg"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop"
+        android:backgroundTint="@color/white"
+        android:text="Зарегистрироваться"
+        android:textColor="@color/brown"
+        android:textSize="@dimen/text_size17"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/link_to_auth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop80"
+        android:fontFamily="@font/inter"
+        android:text="Авторизоваться"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size17" />
+
+    <Button
+        android:id="@+id/button_seller"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop"
+        android:backgroundTint="@color/white"
+        android:text="Зарегистрироваться \nкак продавец"
+        android:textColor="@color/brown"
+        android:textSize="@dimen/text_size17"
+        android:textStyle="bold" />
+
+</LinearLayout>

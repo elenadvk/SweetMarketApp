@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/beije"
+    tools:context=".AuthActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="@color/brown"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop170"
+        android:textSize="@dimen/text_size25"
+        android:textStyle="bold"
+        android:text="ПОРА ЗА ПОКУПКАМИ!" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop50"
+        android:textSize="@dimen/text_size25"
+        android:textStyle="bold"
+        android:text="Войдите в аккаунт" />
+
+    <TextView
+        android:layout_width="@dimen/layout_width400"
+        android:layout_height="@dimen/layout_height50"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop30"
+        android:hint="@string/enter_login"
+        android:textSize="@dimen/text_size17"
+        android:paddingHorizontal="@dimen/paddingHorizontal"
+        android:paddingVertical="@dimen/paddingVertical"
+        android:textColorHint="@color/white"
+        />
+
+    <EditText
+        android:id="@+id/user_login_auth"
+        android:layout_width="@dimen/layout_width350"
+        android:layout_gravity="center"
+        android:layout_height="@dimen/layout_height50"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="@color/gold"
+        android:paddingHorizontal="@dimen/paddingHorizontal"
+        android:paddingVertical="@dimen/paddingVertical"
+        android:textColorHint="@color/white"
+        android:background="@color/white" />
+
+    <TextView
+        android:layout_width="@dimen/layout_width400"
+        android:layout_height="@dimen/layout_height50"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop5"
+        android:hint="@string/enter_pass"
+        android:textSize="17dp"
+        android:paddingHorizontal="@dimen/paddingHorizontal"
+        android:paddingVertical="@dimen/paddingVertical"
+        android:textColorHint="@color/white"
+        />
+
+    <EditText
+        android:id="@+id/user_pass_auth"
+        android:layout_width="@dimen/layout_width350"
+        android:layout_gravity="center"
+        android:layout_height="@dimen/layout_height50"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textColor="@color/gold"
+        android:paddingHorizontal="@dimen/paddingHorizontal"
+        android:paddingVertical="@dimen/paddingVertical"
+        android:textColorHint="@color/white"
+        android:background="@color/white"
+        />
+
+    <Button
+        android:id="@+id/button_auth"
+        android:layout_width="@dimen/layout_width220"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop30"
+        android:text="Войти"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/brown"
+        android:textSize="@dimen/text_size17"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/link_to_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop80"
+        android:fontFamily="@font/inter"
+        android:text="Зарегистрироваться"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/text_size17" />
+
+    <TextView
+        android:id="@+id/auth_as_seller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/layout_marginTop80"
+        android:fontFamily="@font/inter"
+        android:text="Авторизоваться как продавец"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/text_size17" />
+
+</LinearLayout>

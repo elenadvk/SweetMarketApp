@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="beije">#F3CE73</color>
+    <color name="brown">#60472C</color>
+
+    <color name="pink_light">#FFA4F3</color>
+    <color name="pink_dark">#D800C3</color>
+    <color name="pink_mid">#D34BD0</color>
+    <color name="red">#F7553D</color>
+    <color name="bej">#FDE0CC</color>
+    <color name="gold">#FFDA21</color>
+</resources>
