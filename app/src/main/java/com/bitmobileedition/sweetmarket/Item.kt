@@ -1,6 +1,7 @@
 package com.bitmobileedition.sweetmarket
 
 import kotlinx.serialization.Serializable
+
 @Serializable
 data class Item(
     val id: Int,
@@ -10,3 +11,4 @@ data class Item(
     val text: String,
     val price: Int
 )
+

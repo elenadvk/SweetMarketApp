@@ -20,6 +20,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.recyclerview.widget.RecyclerView
+import com.bitmobileedition.sweetmarket.ItemsViewModel
 
 class ItemsActivity : AppCompatActivity() {
 

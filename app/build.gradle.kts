@@ -1,7 +1,7 @@
 plugins {
-    alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("org.jetbrains.kotlin.plugin.serialization") version "2.1.10"
+    id("com.android.application")
 }
 
 android {
@@ -53,10 +53,15 @@ dependencies {
     implementation(libs.retrofit2.kotlinx.serialization.converter)
     implementation(libs.glide.v4151)
     implementation(libs.androidx.room.ktx)
-    implementation(libs.firebase.crashlytics.buildtools)
-    implementation(libs.car.ui.lib)  // Add Glide
+//    implementation(libs.firebase.crashlytics.buildtools)
+//    implementation(libs.car.ui.lib)
+//    implementation(libs.androidx.datastore.core.android)
+//    implementation(libs.androidx.datastore.preferences.core.android)
+//    implementation(libs.androidx.datastore.preferences.core.jvm)
+//    implementation(libs.androidx.work.runtime.ktx)  // Add Glide
     annotationProcessor(libs.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 }
