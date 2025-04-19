@@ -35,6 +35,9 @@
             android:name=".AuthActivity"
             android:exported="true" />
         <activity
+            android:name=".CartActivity"
+            android:exported="true"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

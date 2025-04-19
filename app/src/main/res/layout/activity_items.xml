@@ -7,67 +7,67 @@
     android:layout_height="match_parent"
     tools:context=".ItemsActivity">
 
+    <!-- Тема -->
     <Switch
         android:id="@+id/theme_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/til"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="@dimen/paddingVertical"
-        app:layout_constraintTop_toTopOf="@id/delete"
-        app:layout_constraintBottom_toBottomOf="@+id/delete"
+        android:layout_marginTop="8dp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
+    <!-- Поле поиска -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toEndOf="@+id/theme_switch"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/theme_switch"
         app:layout_constraintEnd_toStartOf="@id/delete"
-        app:layout_constraintTop_toTopOf="@id/delete"
-        app:layout_constraintBottom_toBottomOf="@+id/delete"
+        app:layout_constraintTop_toTopOf="@id/theme_switch"
+        android:layout_marginEnd="8dp"
         android:hint="@string/hint"
-        android:layout_marginEnd="@dimen/paddingHorizontal"
         app:endIconMode="clear_text">
         <AutoCompleteTextView
             android:id="@+id/edit_text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Удалить историю -->
     <Button
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/Widget.Material3.Button.IconButton"
         app:icon="@drawable/test_pic"
-        app:layout_constraintEnd_toStartOf="@+id/back"
-        app:layout_constraintStart_toEndOf="@+id/til"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="@id/theme_switch"
+        app:layout_constraintStart_toEndOf="@id/til"
+        app:layout_constraintEnd_toStartOf="@id/back" />
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/progress"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:indeterminate="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
-
+    <!-- Назад -->
     <Button
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/Widget.Material3.Button.IconButton"
         app:icon="@drawable/test_pic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/delete"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/theme_switch"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Прогресс -->
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:indeterminate="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Текст-заглушка -->
     <TextView
         android:id="@+id/placeholder"
         android:layout_width="match_parent"
@@ -75,33 +75,49 @@
         android:gravity="center"
         android:visibility="gone"
         android:text="@string/placeholder_no_results"
+        app:layout_constraintTop_toBottomOf="@id/til"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Кнопка обновления -->
     <Button
         android:id="@+id/refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:visibility="gone"
         android:text="@string/refresh"
         android:textColor="@color/white"
         android:backgroundTint="@color/red"
+        app:layout_constraintTop_toBottomOf="@id/placeholder"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/placeholder"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Кнопка корзины, закреплённая внизу -->
+    <Button
+        android:id="@+id/go_to_cart_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Перейти в корзину"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/red"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Список товаров, над кнопкой -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemslist"
-        android:layout_marginHorizontal="@dimen/paddingHorizontal"
-        android:layout_marginVertical="@dimen/paddingVertical"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/paddingHorizontal"
+        android:layout_marginBottom="8dp"
+        android:clipToPadding="false"
+        android:paddingBottom="72dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/til"
+        app:layout_constraintBottom_toTopOf="@id/go_to_cart_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

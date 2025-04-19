@@ -3,6 +3,7 @@ package com.bitmobileedition.sweetmarket
 import android.annotation.SuppressLint
 import android.app.UiModeManager
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -25,10 +26,20 @@ import com.bitmobileedition.sweetmarket.ItemsViewModel
 class ItemsActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.S)
-    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    @SuppressLint("UseSwitchCompatOrMaterialCode", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_items)
+
+//        ///////////////////////////////////////////
+        val goToCartButton: Button = findViewById(R.id.go_to_cart_button)
+        goToCartButton.setOnClickListener {
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
+        }
+
+//        //////////////////////////
+
         val viewModel: ItemsViewModel = ViewModelProvider(this).get()
 
         // Views
@@ -39,7 +50,6 @@ class ItemsActivity : AppCompatActivity() {
         val backButton = findViewById<Button>(R.id.back)
         val delete = findViewById<Button>(R.id.delete)
         // /Views
-
 
 
         val sp = getSharedPreferences("preferences", Context.MODE_PRIVATE)
@@ -90,6 +100,14 @@ class ItemsActivity : AppCompatActivity() {
                 placeholder.visibility = View.GONE
             }
         }
+
+//        /////////////////////////////////////////////////////////////////////////////
+//        val cartButton = findViewById<Button>(R.id.cart_button)
+//        cartButton.setOnClickListener {
+//            val intent = Intent(this, CartActivity::class.java)
+//            startActivity(intent)
+//        }
+
 
     }
 }

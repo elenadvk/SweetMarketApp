@@ -1,51 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/beije">
+    android:background="@color/beije"
+    tools:context=".CheckoutActivity">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/address_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:text="Адрес доставки: Улица, дом" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Оформление заказа"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"/>
+    <TextView
+        android:id="@+id/payment_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Способ оплаты: Карта" />
 
-        <EditText
-            android:id="@+id/nameEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="ФИО"
-            android:layout_marginBottom="16dp"/>
-
-        <EditText
-            android:id="@+id/addressEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Адрес доставки"
-            android:layout_marginBottom="16dp"/>
-
-        <EditText
-            android:id="@+id/phoneEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Телефон"
-            android:inputType="phone"
-            android:layout_marginBottom="16dp"/>
-
-        <Button
-            android:id="@+id/placeOrderButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Подтвердить заказ"
-            android:layout_marginTop="16dp"/>
-    </LinearLayout>
-</ScrollView>
+    <Button
+        android:id="@+id/place_order_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Оформить заказ"
+        android:textColor="@color/brown"
+        android:backgroundTint="@color/white" />
+</LinearLayout>

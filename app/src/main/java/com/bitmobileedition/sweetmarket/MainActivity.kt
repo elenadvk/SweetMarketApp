@@ -7,6 +7,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +50,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Пользователь $buyer_login добавлен", Toast.LENGTH_LONG).show()
             }
         }
+
+
 
         buttonSeller.setOnClickListener {
             val seller_login = userLogin.text.toString().trim()

@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 
 class AuthActivity : AppCompatActivity() {
@@ -50,6 +52,8 @@ class AuthActivity : AppCompatActivity() {
                 }
             }
         }
+
+
 
         // Авторизация как продавец
         authAsSeller.setOnClickListener {

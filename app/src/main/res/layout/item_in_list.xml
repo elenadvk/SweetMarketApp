@@ -56,5 +56,13 @@
         android:backgroundTint="@color/white"
         android:layout_height="wrap_content"
         android:text="Посмотреть" />
+    <Button
+        android:id="@+id/add_to_cart_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Добавить в корзину"
+        android:textColor="@color/brown"
+        android:backgroundTint="@color/white" />
+
 
 </LinearLayout>
