@@ -43,4 +43,13 @@
         app:layout_constraintStart_toStartOf="@id/cart_item_title"
         app:layout_constraintTop_toBottomOf="@id/cart_item_price"
         android:layout_marginTop="8dp"/>
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Удалить"
+        app:layout_constraintTop_toBottomOf="@id/view_details_button"
+        app:layout_constraintStart_toStartOf="@id/cart_item_title"
+        android:layout_marginTop="8dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
