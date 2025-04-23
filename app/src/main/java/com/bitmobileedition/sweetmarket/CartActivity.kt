@@ -40,6 +40,7 @@ class CartActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         val clearCartButton: Button = findViewById(R.id.clear_cart_button)
 
         clearCartButton.setOnClickListener {

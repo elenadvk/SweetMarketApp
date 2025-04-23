@@ -3,8 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="24dp"
+    android:background="@color/beije"
     tools:context=".ItemsActivity">
 
     <!-- Тема -->
@@ -12,10 +15,10 @@
         android:id="@+id/theme_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="@dimen/paddingVertical"
-        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <!-- Поле поиска -->
@@ -23,49 +26,55 @@
         android:id="@+id/til"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:hint="Search..."
+        app:hintTextColor="@color/white"
+        app:endIconMode="clear_text"
+        app:boxBackgroundMode="none"
+        android:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@id/theme_switch"
         app:layout_constraintEnd_toStartOf="@id/delete"
         app:layout_constraintTop_toTopOf="@id/theme_switch"
-        android:layout_marginEnd="8dp"
-        android:hint="@string/hint"
-        app:endIconMode="clear_text">
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
         <AutoCompleteTextView
             android:id="@+id/edit_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
+</com.google.android.material.textfield.TextInputLayout>
+
 
     <!-- Удалить историю -->
     <Button
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/brown"
         style="@style/Widget.Material3.Button.IconButton"
-        app:icon="@drawable/test_pic"
+        app:icon="@drawable/clear_icon"
+        app:iconTint="@color/brown"
         app:layout_constraintTop_toTopOf="@id/theme_switch"
-        app:layout_constraintStart_toEndOf="@id/til"
-        app:layout_constraintEnd_toStartOf="@id/back" />
+        app:layout_constraintEnd_toStartOf="@id/profile"
+        android:layout_marginEnd="8dp" />
 
-    <!-- Назад -->
+
+    <!-- ЛК -->
     <Button
-        android:id="@+id/back"
+        android:id="@+id/profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/brown"
         style="@style/Widget.Material3.Button.IconButton"
-        app:icon="@drawable/test_pic"
+        app:icon="@drawable/lk"
+        app:iconTint="@color/brown"
         app:layout_constraintTop_toTopOf="@id/theme_switch"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Прогресс -->
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/progress"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:indeterminate="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp" />
 
     <!-- Текст-заглушка -->
     <TextView
@@ -82,12 +91,11 @@
     <!-- Кнопка обновления -->
     <Button
         android:id="@+id/refresh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        app:icon="@drawable/refresh"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:visibility="gone"
-        android:text="@string/refresh"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/red"
+        android:backgroundTint="@color/white"
         app:layout_constraintTop_toBottomOf="@id/placeholder"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -98,16 +106,29 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Перейти в корзину"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/red"
+        android:textColor="@color/brown"
+        android:backgroundTint="@color/white"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Список товаров, над кнопкой -->
+    <!-- Прогресс -->
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress"
+        android:visibility="gone"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:indeterminate="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Список товаров -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemslist"
+        android:layout_marginTop="20dp"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginHorizontal="@dimen/paddingHorizontal"

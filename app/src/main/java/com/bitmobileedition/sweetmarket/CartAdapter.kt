@@ -21,7 +21,7 @@ class CartAdapter(private var cartItems: MutableList<String>, private val contex
         val image: ImageView = view.findViewById(R.id.cart_item_image)
         val title: TextView = view.findViewById(R.id.cart_item_title)
         val price: TextView = view.findViewById(R.id.cart_item_price)
-        val viewDetailsBtn: Button = view.findViewById(R.id.view_details_button)
+//        val viewDetailsBtn: Button = view.findViewById(R.id.view_details_button)
         val deleteBtn: Button = view.findViewById(R.id.delete_button)
     }
 
@@ -51,7 +51,7 @@ class CartAdapter(private var cartItems: MutableList<String>, private val contex
         holder.price.text = "${item.price}₽"
         Glide.with(context).load("file:///android_asset/${item.image}").into(holder.image)
 
-        holder.viewDetailsBtn.setOnClickListener {
+        holder.image.setOnClickListener {
             val intent = Intent(context, ItemActivity::class.java).apply {
                 putExtra("itemTitle", item.title)
                 putExtra("itemText", item.text)
@@ -59,6 +59,15 @@ class CartAdapter(private var cartItems: MutableList<String>, private val contex
             }
             context.startActivity(intent)
         }
+
+//        holder.viewDetailsBtn.setOnClickListener {
+//            val intent = Intent(context, ItemActivity::class.java).apply {
+//                putExtra("itemTitle", item.title)
+//                putExtra("itemText", item.text)
+//                putExtra("itemImage", item.image)
+//            }
+//            context.startActivity(intent)
+//        }
 
         holder.deleteBtn.setOnClickListener {
             cartItems.removeAt(position)
@@ -81,6 +90,7 @@ class CartAdapter(private var cartItems: MutableList<String>, private val contex
             null
         }
     }
+
 }
 
 

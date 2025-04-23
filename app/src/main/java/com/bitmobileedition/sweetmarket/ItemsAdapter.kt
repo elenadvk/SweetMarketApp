@@ -21,7 +21,7 @@ class ItemsAdapter(var items: List<Item>, var context: Context, val onClick: (St
         val title: TextView = view.findViewById(R.id.item_list_title)
         val desc: TextView = view.findViewById(R.id.item_list_desc)
         val price: TextView = view.findViewById(R.id.item_list_price)
-        val btn: Button = view.findViewById(R.id.item_list_button)
+//        val btn: Button = view.findViewById(R.id.item_list_button)
         val addToCartBtn: Button = view.findViewById(R.id.add_to_cart_button)
     }
 
@@ -52,13 +52,20 @@ class ItemsAdapter(var items: List<Item>, var context: Context, val onClick: (St
             Toast.makeText(context, "${items[position].title} добавлен в корзину!", Toast.LENGTH_SHORT).show()
         }
 
-        holder.btn.setOnClickListener {
-            onClick(items[position].title)
+        holder.itemView.setOnClickListener {
             val intent = Intent(context, ItemActivity::class.java)
             intent.putExtra("itemTitle", items[position].title)
             intent.putExtra("itemText", items[position].text)
             intent.putExtra("itemImage", items[position].image)
             context.startActivity(intent)
         }
+//        holder.btn.setOnClickListener {
+//            onClick(items[position].title)
+//            val intent = Intent(context, ItemActivity::class.java)
+//            intent.putExtra("itemTitle", items[position].title)
+//            intent.putExtra("itemText", items[position].text)
+//            intent.putExtra("itemImage", items[position].image)
+//            context.startActivity(intent)
+//        }
     }
 }

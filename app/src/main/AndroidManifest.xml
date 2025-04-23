@@ -37,6 +37,8 @@
         <activity
             android:name=".CartActivity"
             android:exported="true"/>
+        <activity android:name="SellerProfileActivity"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
