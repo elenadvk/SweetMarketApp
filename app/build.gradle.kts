@@ -38,7 +38,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -53,19 +52,22 @@ dependencies {
     implementation(libs.retrofit2.kotlinx.serialization.converter)
     implementation(libs.glide.v4151)
     implementation(libs.androidx.room.ktx)
-//    implementation(libs.firebase.crashlytics.buildtools)
-//    implementation(libs.car.ui.lib)
-//    implementation(libs.androidx.datastore.core.android)
-//    implementation(libs.androidx.datastore.preferences.core.android)
-//    implementation(libs.androidx.datastore.preferences.core.jvm)
-//    implementation(libs.androidx.work.runtime.ktx)  // Add Glide
+    implementation(libs.androidx.compiler)
+
+    // Обновленная зависимость для guava
+    implementation("com.google.guava:guava:30.1-jre") {
+        exclude(group = "com.google.guava", module = "listenablefuture")
+    }
+
+    // Убедитесь, что дублирующие зависимости для Retrofit (например, Gson) правильно настроены
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)  // Если используете Gson
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Остальные зависимости...
     annotationProcessor(libs.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.gson)
-    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.recyclerview)
 }

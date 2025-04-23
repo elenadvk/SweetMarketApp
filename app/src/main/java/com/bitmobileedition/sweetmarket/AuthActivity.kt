@@ -72,7 +72,7 @@ class AuthActivity : AppCompatActivity() {
                     userPass.text.clear()
 
                     // Переход к основной активности после авторизации продавца
-                    val intent = Intent(this, ItemsActivity::class.java)
+                    val intent = Intent(this, SellerActivity::class.java)
                     startActivity(intent)
                 } else {
                     Toast.makeText(this, "Продавец $login не авторизован", Toast.LENGTH_LONG).show()
