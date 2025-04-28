@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/otp_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Введите код, отправленный на вашу почту"
+        android:textSize="18sp"
+        android:layout_marginBottom="20dp" />
+
+    <EditText
+        android:id="@+id/otp_code_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Код подтверждения"
+        android:inputType="number"
+        android:maxLength="6"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/otp_verify_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Подтвердить" />
+</LinearLayout>

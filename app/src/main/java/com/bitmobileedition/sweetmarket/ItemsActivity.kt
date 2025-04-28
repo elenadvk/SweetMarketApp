@@ -20,8 +20,11 @@ import androidx.core.content.edit
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bitmobileedition.sweetmarket.ItemsViewModel
+import kotlinx.coroutines.launch
 
 class ItemsActivity : AppCompatActivity() {
 
@@ -38,6 +41,7 @@ class ItemsActivity : AppCompatActivity() {
             val intent = Intent(this, CartActivity::class.java)
             startActivity(intent)
         }
+
 
 //        //////////////////////////
 
@@ -113,14 +117,10 @@ class ItemsActivity : AppCompatActivity() {
                 placeholder.visibility = View.GONE
             }
         }
-
-//        /////////////////////////////////////////////////////////////////////////////
-//        val cartButton = findViewById<Button>(R.id.cart_button)
-//        cartButton.setOnClickListener {
-//            val intent = Intent(this, CartActivity::class.java)
-//            startActivity(intent)
-//        }
-
-
     }
+    fun getAuthToken(): String? {
+        val sharedPreferences = getSharedPreferences("auth_prefs", MODE_PRIVATE)
+        return sharedPreferences.getString("auth_token", null)
+    }
+
 }

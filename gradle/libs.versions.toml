@@ -38,6 +38,8 @@ compiler = "3.2.0-alpha11"
 #datastorePreferencesCoreJvm = "1.1.4"
 #workRuntimeKtx = "2.10.0"
 recyclerview = "1.3.1"
+okhttp = "5.0.0-alpha.11"
+firebaseCrashlyticsBuildtools = "3.0.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -111,6 +113,8 @@ androidx-compiler = { group = "androidx.databinding", name = "compiler", version
 #androidx-datastore-preferences-core-jvm = { group = "androidx.datastore", name = "datastore-preferences-core-jvm", version.ref = "datastorePreferencesCoreJvm" }
 #androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "workRuntimeKtx" }
 recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+firebase-crashlytics-buildtools = { group = "com.google.firebase", name = "firebase-crashlytics-buildtools", version.ref = "firebaseCrashlyticsBuildtools" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

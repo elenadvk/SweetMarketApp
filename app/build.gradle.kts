@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)  // Если используете Gson
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.firebase.crashlytics.buildtools)
 
     // Остальные зависимости...
     annotationProcessor(libs.compiler)
@@ -72,9 +73,13 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.recyclerview)
 
-    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-storage:21.0.1")
-    implementation("com.google.firebase:firebase-firestore:25.1.3")
+    implementation(libs.okhttp.logging.interceptor)
+
+
+
+//    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
+//    implementation("com.google.firebase:firebase-analytics")
+//    implementation("com.google.firebase:firebase-auth")
+//    implementation("com.google.firebase:firebase-storage:21.0.1")
+//    implementation("com.google.firebase:firebase-firestore:25.1.3")
 }
