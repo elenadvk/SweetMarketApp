@@ -57,8 +57,18 @@ class ItemsAdapter(var items: List<Item>, var context: Context, val onClick: (St
             intent.putExtra("itemTitle", items[position].title)
             intent.putExtra("itemText", items[position].text)
             intent.putExtra("itemImage", items[position].image)
+            intent.putExtra("itemDesc", items[position].desc) // Добавляем описание
+            intent.putExtra("itemPrice", items[position].price) // Добавляем цену
             context.startActivity(intent)
         }
+//        holder.itemView.setOnClickListener {
+//            val intent = Intent(context, ItemActivity::class.java)
+//            intent.putExtra("itemTitle", items[position].title)
+//            intent.putExtra("itemText", items[position].text)
+//            intent.putExtra("itemImage", items[position].image)
+//            intent.putExtra("itemPrice", items[position].price)
+//            context.startActivity(intent)
+//        }
 //        holder.btn.setOnClickListener {
 //            onClick(items[position].title)
 //            val intent = Intent(context, ItemActivity::class.java)

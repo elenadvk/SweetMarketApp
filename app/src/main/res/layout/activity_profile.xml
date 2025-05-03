@@ -5,11 +5,23 @@
     android:background="@color/beije"
     android:padding="16dp">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Мой профиль"
+        android:textColor="@color/white"
+        android:textSize="@dimen/layout_marginTop30"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        />
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_marginTop30"
         android:hint="Имя"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:enabled="false"/>
 
     <EditText
@@ -17,12 +29,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:enabled="false"/>
 
     <Button
         android:id="@+id/edit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Редактировать"/>
+        android:text="Редактировать"
+        android:layout_marginTop="490dp"
+        android:textColor="@color/brown"
+        android:backgroundTint="@color/white"/>
+
+    <Button
+        android:id="@+id/backtoItems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="Вернуться"
+        android:textColor="@color/brown" />
 
 </LinearLayout>

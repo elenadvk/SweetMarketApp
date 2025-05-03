@@ -35,7 +35,7 @@
         android:layout_height="@dimen/layout_height50"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/layout_marginTop30"
-        android:hint="@string/enter_login"
+        android:hint="Введите email"
         android:textSize="@dimen/text_size17"
         android:paddingHorizontal="@dimen/paddingHorizontal"
         android:paddingVertical="@dimen/paddingVertical"
@@ -104,15 +104,5 @@
         android:textColor="#FFFFFF"
         android:textSize="@dimen/text_size17" />
 
-    <TextView
-        android:id="@+id/auth_as_seller"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/layout_marginTop80"
-        android:fontFamily="@font/inter"
-        android:text="Авторизоваться как продавец"
-        android:textColor="#FFFFFF"
-        android:textSize="@dimen/text_size17" />
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.bitmobileedition.sweetmarket
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class CartActivity : AppCompatActivity() {
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
@@ -21,16 +23,11 @@ class CartActivity : AppCompatActivity() {
         val checkoutButton: Button = findViewById(R.id.checkoutButton)
 
         val sp = getSharedPreferences("preferences", Context.MODE_PRIVATE)
-//        val cartItems = sp.getStringSet("cart", setOf())?.toList() ?: emptyList()
-//        val cartItems = sp.getStringSet("cart", setOf())?.toMutableList() ?: mutableListOf()
         val cartItems = sp.getStringSet("cart", setOf())
             ?.filterNot { it.isNullOrBlank() }
             ?.toMutableList() ?: mutableListOf()
 
-
-
         // Настройка адаптера для RecyclerView
-//        val adapter = CartAdapter(cartItems, this)
         val adapter = CartAdapter(cartItems, this)
         cartListView.layoutManager = LinearLayoutManager(this)
         cartListView.adapter = adapter
@@ -39,7 +36,6 @@ class CartActivity : AppCompatActivity() {
             val intent = Intent(this, CheckoutActivity::class.java)
             startActivity(intent)
         }
-
 
         val clearCartButton: Button = findViewById(R.id.clear_cart_button)
 
@@ -57,18 +53,90 @@ class CartActivity : AppCompatActivity() {
             editor.apply()
 
             // Обновляем адаптер
-            val adapter = CartAdapter(mutableListOf(), this)
-            cartListView.adapter = adapter
+            val updatedCartItems = mutableListOf<String>()
+            adapter.cartItems = updatedCartItems
+            adapter.notifyDataSetChanged()
 
             Toast.makeText(this, "Корзина очищена", Toast.LENGTH_SHORT).show()
-
         }
 
         checkoutButton.setOnClickListener {
             finish()
         }
 
-
+        val goToOrdersButton: Button = findViewById(R.id.go_to_orders_button)
+        goToOrdersButton.setOnClickListener {
+            val intent = Intent(this, OrdersActivity::class.java)
+            Toast.makeText(this, "Заказ оформлен", Toast.LENGTH_SHORT).show()
+            startActivity(intent)
+        }
     }
 }
+
+//class CartActivity : AppCompatActivity() {
+//
+//    @SuppressLint("MissingInflatedId")
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_cart)
+//
+//        val cartListView: RecyclerView = findViewById(R.id.cart_list)
+//        val checkoutButton: Button = findViewById(R.id.checkoutButton)
+//
+//        val sp = getSharedPreferences("preferences", Context.MODE_PRIVATE)
+////        val cartItems = sp.getStringSet("cart", setOf())?.toList() ?: emptyList()
+////        val cartItems = sp.getStringSet("cart", setOf())?.toMutableList() ?: mutableListOf()
+//        val cartItems = sp.getStringSet("cart", setOf())
+//            ?.filterNot { it.isNullOrBlank() }
+//            ?.toMutableList() ?: mutableListOf()
+//
+//
+//
+//        // Настройка адаптера для RecyclerView
+////        val adapter = CartAdapter(cartItems, this)
+//        val adapter = CartAdapter(cartItems, this)
+//        cartListView.layoutManager = LinearLayoutManager(this)
+//        cartListView.adapter = adapter
+//
+//        checkoutButton.setOnClickListener {
+//            val intent = Intent(this, CheckoutActivity::class.java)
+//            startActivity(intent)
+//        }
+//
+//
+//        val clearCartButton: Button = findViewById(R.id.clear_cart_button)
+//
+//        clearCartButton.setOnClickListener {
+//            val editor = sp.edit()
+//            val cartItems = sp.getStringSet("cart", setOf()) ?: setOf()
+//
+//            // Удаляем сохранённые данные о каждом товаре
+//            for (title in cartItems) {
+//                editor.remove("item_$title")
+//            }
+//
+//            // Очищаем саму корзину
+//            editor.remove("cart")
+//            editor.apply()
+//
+//            // Обновляем адаптер
+//            val adapter = CartAdapter(mutableListOf(), this)
+//            cartListView.adapter = adapter
+//
+//            Toast.makeText(this, "Корзина очищена", Toast.LENGTH_SHORT).show()
+//
+//        }
+//
+//        checkoutButton.setOnClickListener {
+//            finish()
+//        }
+//        val goToOrdersButton: Button = findViewById(R.id.go_to_orders_button)
+//        goToOrdersButton.setOnClickListener {
+//            val intent = Intent(this, OrdersActivity::class.java)
+//            Toast.makeText(this, "Заказ оформлен", Toast.LENGTH_SHORT).show()
+//            startActivity(intent)
+//        }
+//
+//    }
+//}
 

@@ -137,16 +137,4 @@
         android:textColor="@color/white"
         android:textSize="@dimen/text_size17" />
 
-    <Button
-        android:id="@+id/button_seller"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/layout_marginTop"
-        android:backgroundTint="@color/white"
-        android:text="Зарегистрироваться \nкак продавец"
-        android:textColor="@color/brown"
-        android:textSize="@dimen/text_size17"
-        android:textStyle="bold" />
-
 </LinearLayout>

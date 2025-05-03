@@ -4,11 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="beije">#A07E59</color>
     <color name="brown">#4D3A27</color>
-
-    <color name="pink_light">#FFA4F3</color>
-    <color name="pink_dark">#D800C3</color>
-    <color name="pink_mid">#D34BD0</color>
-    <color name="red">#F7553D</color>
-    <color name="bej">#FDE0CC</color>
-    <color name="gold">#FFDA21</color>
+    <color name="orderStatus">#90581E</color>
 </resources>

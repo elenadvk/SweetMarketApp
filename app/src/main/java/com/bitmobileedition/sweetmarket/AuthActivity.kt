@@ -23,7 +23,7 @@ class AuthActivity : AppCompatActivity() {
         val button: Button = findViewById(R.id.button_auth)
 
         val linkToReg: TextView = findViewById(R.id.link_to_reg)
-        val authAsSeller: TextView = findViewById(R.id.auth_as_seller)
+//        val authAsSeller: TextView = findViewById(R.id.auth_as_seller)
 
         // Переход к экрану регистрации
         linkToReg.setOnClickListener {
@@ -87,82 +87,62 @@ class AuthActivity : AppCompatActivity() {
             }
         }
 
-        // Авторизация как продавец
-        authAsSeller.setOnClickListener {
-            val email = userEmail.text.toString().trim()
-            val pass = userPass.text.toString().trim()
-            val userType = "seller"
-
-            if (email.isEmpty() || pass.isEmpty()) {
-                Toast.makeText(this, "Введите email и пароль", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            val loginRequest = LoginRequest(email, pass, userType.lowercase())
-
-            lifecycleScope.launch {
-                try {
-                    val response = RetrofitInstance.api.loginUser(loginRequest)
-                    if (response.isSuccessful) {
-                        val user = response.body()?.user
-                        val userId = user?.id
-                        val isVerified = user?.isVerified ?: false
-
-                        saveUserId(userId)
-
-                        if (!isVerified) {
-                            if (response.code() == 400 && response.errorBody()?.string()?.contains("Account is not verified") == true) {
-                                val userId = getSavedUserId()
-                                val intent = Intent(this@AuthActivity, MainActivity::class.java)
-                                intent.putExtra("userId", userId)
-                                startActivity(intent)
-                            }
-                        }
-
-                        val token = response.body()?.accessToken
-                        saveAuthToken(token)
-                        Toast.makeText(this@AuthActivity, "Успешный вход", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this@AuthActivity, SellerProfileActivity::class.java))
-                        finish()
-                    } else {
-                        if (response.code() == 400 && response.errorBody()?.string()?.contains("Account is not verified") == true) {
-                            // Перенаправление на экран подтверждения
-                            val userId = getSavedUserId()
-                            val intent = Intent(this@AuthActivity, OtpActivity::class.java)
-                            intent.putExtra("userId", userId)
-                            startActivity(intent)
-                        }
-                        val userId = getSavedUserId() // или из response.body()?.user?.id
-                        val intent = Intent(this@AuthActivity, SellerProfileActivity::class.java)
-                        intent.putExtra("userId", userId)
-                        startActivity(intent)
-//                        Toast.makeText(this@AuthActivity, "Ошибка авторизации", Toast.LENGTH_SHORT).show()
-                    }
-                } catch (e: Exception) {
-                    Toast.makeText(this@AuthActivity, "Ошибка сети: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
-                }
-            }
-//            val login = userEmail.text.toString().trim()
+//        // Авторизация как продавец
+//        authAsSeller.setOnClickListener {
+//            val email = userEmail.text.toString().trim()
 //            val pass = userPass.text.toString().trim()
+//            val userType = "seller"
 //
-//            if (login.isEmpty() || pass.isEmpty()) {
-//                Toast.makeText(this, "Не все поля заполнены", Toast.LENGTH_LONG).show()
-//            } else {
-//                val db = DbHelper(this, null)
-//                val isAuth = db.getSeller(login, pass)
+//            if (email.isEmpty() || pass.isEmpty()) {
+//                Toast.makeText(this, "Введите email и пароль", Toast.LENGTH_SHORT).show()
+//                return@setOnClickListener
+//            }
 //
-//                if (isAuth) {
-//                    Toast.makeText(this, "Продавец $login авторизован", Toast.LENGTH_LONG).show()
-//                    userEmail.text.clear()
-//                    userPass.text.clear()
+//            val loginRequest = LoginRequest(email, pass, userType.lowercase())
 //
-//                    val intent = Intent(this, SellerActivity::class.java)
-//                    startActivity(intent)
-//                } else {
-//                    Toast.makeText(this, "Продавец $login не авторизован", Toast.LENGTH_LONG).show()
+//            lifecycleScope.launch {
+//                try {
+//                    val response = RetrofitInstance.api.loginUser(loginRequest)
+//                    if (response.isSuccessful) {
+//                        val user = response.body()?.user
+//                        val userId = user?.id
+//                        val isVerified = user?.isVerified ?: false
+//
+//                        saveUserId(userId)
+//
+//                        if (!isVerified) {
+//                            if (response.code() == 400 && response.errorBody()?.string()?.contains("Account is not verified") == true) {
+//                                val userId = getSavedUserId()
+//                                val intent = Intent(this@AuthActivity, MainActivity::class.java)
+//                                intent.putExtra("userId", userId)
+//                                startActivity(intent)
+//                            }
+//                        }
+//
+//                        val token = response.body()?.accessToken
+//                        saveAuthToken(token)
+//                        Toast.makeText(this@AuthActivity, "Успешный вход", Toast.LENGTH_SHORT).show()
+//                        startActivity(Intent(this@AuthActivity, SellerProfileActivity::class.java))
+//                        finish()
+//                    } else {
+//                        if (response.code() == 400 && response.errorBody()?.string()?.contains("Account is not verified") == true) {
+//                            // Перенаправление на экран подтверждения
+//                            val userId = getSavedUserId()
+//                            val intent = Intent(this@AuthActivity, OtpActivity::class.java)
+//                            intent.putExtra("userId", userId)
+//                            startActivity(intent)
+//                        }
+//                        val userId = getSavedUserId() // или из response.body()?.user?.id
+//                        val intent = Intent(this@AuthActivity, SellerProfileActivity::class.java)
+//                        intent.putExtra("userId", userId)
+//                        startActivity(intent)
+////                        Toast.makeText(this@AuthActivity, "Ошибка авторизации", Toast.LENGTH_SHORT).show()
+//                    }
+//                } catch (e: Exception) {
+//                    Toast.makeText(this@AuthActivity, "Ошибка сети: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
 //                }
 //            }
-        }
+//        }
     }
 
     private fun saveAuthToken(token: String?) {

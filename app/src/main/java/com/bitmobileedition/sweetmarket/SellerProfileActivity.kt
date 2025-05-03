@@ -1,6 +1,7 @@
 package com.bitmobileedition.sweetmarket
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -13,6 +14,7 @@ class SellerProfileActivity : AppCompatActivity() {
     private lateinit var email: EditText
     private lateinit var editButton: Button
     private var isEditing = false
+    private lateinit var backtoItems: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +23,7 @@ class SellerProfileActivity : AppCompatActivity() {
         username = findViewById(R.id.username)
         email = findViewById(R.id.email)
         editButton = findViewById(R.id.edit_button)
+        backtoItems = findViewById(R.id.backtoItems)
 
         val sp = getSharedPreferences("user", Context.MODE_PRIVATE)
         username.setText(sp.getString("username", "Пользователь"))
@@ -38,6 +41,11 @@ class SellerProfileActivity : AppCompatActivity() {
                     putString("email", email.text.toString())
                 }
             }
+        }
+
+        backtoItems.setOnClickListener {
+            val intent = Intent(this, ItemsActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -16,6 +16,9 @@ import android.widget.Switch
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.content.edit
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
@@ -47,7 +50,7 @@ class ItemsActivity : AppCompatActivity() {
 
 //        val viewModel: ItemsViewModel = ViewModelProvider(this).get()
         val viewModel: ItemsViewModel = ViewModelProvider(this)[ItemsViewModel::class.java]
-        viewModel.loadItems()
+//        viewModel.loadItems()
 
         // Views
         val itemsList: RecyclerView = findViewById(R.id.itemslist)
@@ -64,18 +67,35 @@ class ItemsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+        val rootLayout: ConstraintLayout = findViewById(R.id.root_layout)
         val sp = getSharedPreferences("preferences", Context.MODE_PRIVATE)
 
         val uiModeManager = getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
         switch.isChecked = sp.getBoolean("theme", false)
         switch.setOnCheckedChangeListener { _, isChecked ->
+            Log.d("ThemeSwitch", "Theme changed: $isChecked")
             sp.edit { putBoolean("theme", isChecked) }
-            if(isChecked) {
-                uiModeManager.setApplicationNightMode(UiModeManager.MODE_NIGHT_YES)
+            if (isChecked) {
+//                uiModeManager.setApplicationNightMode(UiModeManager.MODE_NIGHT_YES)
+//                rootLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.brown))  // Темный фон
+                rootLayout.setBackgroundColor(resources.getColor(R.color.beije))  // Темный фон
             } else {
-                uiModeManager.setApplicationNightMode(UiModeManager.MODE_NIGHT_NO)
+//                uiModeManager.setApplicationNightMode(UiModeManager.MODE_NIGHT_NO)
+//                rootLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.beije))  // Светлый фон
+                rootLayout.setBackgroundColor(resources.getColor(R.color.brown))
             }
         }
+//        switch.setOnCheckedChangeListener { _, isChecked ->
+//            sp.edit { putBoolean("theme", isChecked) }
+//            if(isChecked) {
+//                uiModeManager.setApplicationNightMode(UiModeManager.MODE_NIGHT_YES)
+//                rootLayout.setBackgroundColor(resources.getColor(R.color.brown))
+//            } else {
+//                uiModeManager.setApplicationNightMode(UiModeManager.MODE_NIGHT_NO)
+//                rootLayout.setBackgroundColor(resources.getColor(R.color.beije))
+//            }
+//        }
 
         refreshButton.setOnClickListener { viewModel.filter() }
         val editText = findViewById<AutoCompleteTextView>(R.id.edit_text)
@@ -91,6 +111,21 @@ class ItemsActivity : AppCompatActivity() {
             }
         }
         val progressIndicator = findViewById<ProgressBar>(R.id.progress)
+
+//        viewModel.items.observe(this) { items ->
+//            progressIndicator.visibility = View.GONE
+//            if (items.isNullOrEmpty()) {
+//                placeholder.visibility = View.VISIBLE
+//                refreshButton.visibility = View.VISIBLE
+//            } else {
+//                placeholder.visibility = View.GONE
+//                refreshButton.visibility = View.GONE
+//                // Передаем данные в адаптер
+//                itemsList.adapter = ItemsAdapter(items, this) { itemTitle ->
+//                    // Обработчик нажатия на товар
+//                }
+//            }
+//        }
 
         viewModel.items.observe(this){
             progressIndicator.visibility = View.GONE
@@ -118,6 +153,8 @@ class ItemsActivity : AppCompatActivity() {
             }
         }
     }
+
+
     fun getAuthToken(): String? {
         val sharedPreferences = getSharedPreferences("auth_prefs", MODE_PRIVATE)
         return sharedPreferences.getString("auth_token", null)

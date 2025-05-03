@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@color/beije"
     android:padding="24dp">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Введите код, отправленный на вашу почту"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:layout_marginBottom="20dp" />
 
@@ -19,6 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Код подтверждения"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:inputType="number"
         android:maxLength="6"
         android:layout_marginBottom="20dp" />
@@ -27,5 +31,7 @@
         android:id="@+id/otp_verify_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Подтвердить" />
+        android:text="Подтвердить"
+        android:textColor="@color/brown"
+        android:backgroundTint="@color/white"/>
 </LinearLayout>
